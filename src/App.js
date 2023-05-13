@@ -1,9 +1,15 @@
 import './index.css'
+import Nav from './components/Nav'
 
 function App() {
   return (
     <div className="App">
-      <h1>Helo World</h1>
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <h1>Hi</h1>
+      </main>
     </div>
   )
 }
