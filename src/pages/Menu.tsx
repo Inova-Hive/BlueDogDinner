@@ -84,7 +84,7 @@ const Menu: FC = () => {
       {menu && (
         <div className="border-8 px-16 py-14 px-36 mx-auto mt-20 w-2/3 menu-letter-background" >
           {/* Menu header */}
-          <h1 className='text-center font-1-bold text-custom-red text-5xl m-2 pb-24'>{menu[0].menuDescription}</h1>
+          <h1 className='text-center font-1-bold text-white text-5xl m-2 pb-32'>{menu[0].menuDescription}</h1>
           
           {/* Loop over menu sections */}
           {menu[0].menu_section.map((section) => (
