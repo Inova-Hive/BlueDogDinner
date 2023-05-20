@@ -3,6 +3,10 @@ import axios from 'axios'
 
 import { BASE_URL } from '../globals'
 
+import { FaHotdog, FaConciergeBell } from 'react-icons/fa';
+import { GiChipsBag, GiCoffeeCup } from 'react-icons/gi';
+import { MdLocalDrink} from 'react-icons/md';
+
 // Define interfaces for the data structure
 interface Section_Menu_Items {
   id: number;
@@ -47,23 +51,52 @@ const Menu: FC = () => {
     GetMenu()
   }, [])
 
+  const getIcon = (itemName: string) => {
+    let icon;
+    let iconSize = 40
+    switch (itemName) {
+      case 'Hotdogs':
+        icon = <FaHotdog size={iconSize}/>;
+        break;
+      case 'Sides':
+        icon = <GiChipsBag size={iconSize}/>;
+        break;
+      case 'Drinks':
+        icon = <MdLocalDrink size={iconSize}/>;
+        break;
+      case 'Coffee':
+        icon = <GiCoffeeCup size={iconSize}/>;
+        break;
+      case 'Specials Menu':
+        icon = <FaConciergeBell size={iconSize}/>;
+        break;
+      default:
+        icon = <FaHotdog size={iconSize}/>;
+    }
+    return icon;
+  }
+  
+
   // Render component
   return (
-    <div className='border-8 border-black px-16 py-10 mx-auto mt-20 w-2/4 menu-background'>
+    <div className='mx-auto menu-background py-2 pb-20'>
       {/* Check if menu data exists before trying to render it */}
       {menu && (
-        <>
+        <div className="border-8 px-16 py-14 px-36 mx-auto mt-20 w-2/3 menu-letter-background" >
           {/* Menu header */}
-          <h1 className='text-center font-1-bold text-custom-red text-3xl m-2 pb-8'>{menu[0].menuDescription}</h1>
+          <h1 className='text-center font-1-bold text-custom-red text-5xl m-2 pb-24'>{menu[0].menuDescription}</h1>
           
           {/* Loop over menu sections */}
           {menu[0].menu_section.map((section) => (
             <div key={section.id}>
               {/* Display section name */}
-              <p className='text-center font-1-semibold text-custom-red text-3xl pb-10'>{section.sectionName}</p>
+              <div className="flex flex-col justify-center items-center text-custom-red">
+                <p className="pb-6">{getIcon(section?.sectionName)}</ p>
+                <p className='text-center font-1-semibold text-white text-3xl pb-10 ml-2'>{section.sectionName}</p>
+              </div>
               
               {/* Container for section menu items */}
-              <div className='grid grid-cols-2 gap-24 text-center m-2'>
+              <div className='grid grid-cols-2 gap-56 text-center m-2'>
                 {/* Loop over section menu items */}
                 {section.section_menu_items.map((item) => (
                   <div key={item.id} className='pb-6'>
@@ -78,7 +111,7 @@ const Menu: FC = () => {
               </div>
             </div>
           ))}
-        </>
+        </div>
       )}
     </div>
   )
