@@ -48,3 +48,11 @@
   .bg-hero-image {
     background-image: url('https://i.imgur.com/bZOGUn8.jpg');
 }
+
+/* menu styling */
+
+.menu-background {
+  background-image: url('https://i.imgur.com/6txZk1H.jpg');
+  background-size: cover;
+  background-position: center;
+}
