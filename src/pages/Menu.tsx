@@ -41,7 +41,6 @@ const Menu: FC = () => {
       try {
         const res = await axios.get(`${BASE_URL}/menu/get_menu`)
         setMenu(res.data)
-        console.log(res.data)
       } catch (error) {
         console.error(error);
       }

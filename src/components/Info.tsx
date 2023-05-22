@@ -5,7 +5,7 @@ const Info: React.FC = () => {
   return(
     <>
         <div className="text-center pt-6 pb-4 mx-auto w-2/5 mb-10">
-            <h2 className="text-3xl font-1-bold text-custom-red mt-24 mb-6">Why Blue Dog Diner's Hot Dogs are the Best in Town</h2>
+            <h2 className="text-3xl font-1-bold text-custom-red mt-24 mb-6">Why Blu Dog Diner's Hot Dogs are the Best in Town</h2>
             <p className="text-xl font-1-bold text-custom-red mx-auto w-2/4 mt-4">Our hot dogs are made with 100% organic ingredients and are grilled to perfection.</p>          
         </div>
         
