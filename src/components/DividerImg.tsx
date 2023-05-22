@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 
 const DividerImg: React.FC = () => {
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div style={{ transform: `translateY(${offsetY * 0.5}px)` }}>
-      <img src="https://i.imgur.com/bZOGUn8.jpg" alt="Divider" />
+    <div 
+      className="relative bg-fixed bg-center bg-no-repeat bg-cover h-[500px]"
+      style={{
+        backgroundImage: `url("https://i.imgur.com/FQqx0eN.jpg")`
+      }}
+    >
     </div>
-  );
-};
+  )
+}
 
-export default DividerImg;
+export default DividerImg
