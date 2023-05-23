@@ -46,12 +46,75 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
     z-index: 10;
   }
+
+  /* .main-background {
+    position: relative;
+    background-image: url('https://i.imgur.com/OgQaScZ.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+  } */
   
+
+  .sticky-social {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 150px;
+    z-index: 999;
+  }
+  
+  .sticky-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
+    margin: 0.5em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sticky-social .instagram {
+    background-color: #E4405F;
+    border-radius: 5px;
+  }
+  
+  .sticky-social .twitter {
+    background-color: #1DA1F2;
+    border-radius: 5px;
+  }
+  
+  .sticky-social a:hover {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .sticky-social a svg {
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+
+  
+  .sticky-social .instagram:hover svg {
+    color: #E4405F;
+  }
+  
+  .sticky-social .twitter:hover svg {
+    color: #1DA1F2;
+  }
+
 
   /* Banner styling */
   .bg-hero-image {
     background-image: url('https://i.imgur.com/bZOGUn8.jpg');
 }
+
+
 
 /* menu styling */
 
@@ -99,7 +162,13 @@
 }
 
 
-
+/* Info styling */
+.box-shadow1{
+  box-shadow: -16px 16px #ef4b4d;
+}
+.box-shadow2{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 
 
