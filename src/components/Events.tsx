@@ -30,17 +30,17 @@ const Events: React.FC = () => {
     }, [])
 
     return (
-        <>
+        <div className='mb-24'>
             {event ? (
                 <div className="flex flex-col items-center justify-center border-8 w-2/4 border-custom-red py-10 px-6 mx-auto m-4 mt-24 font-1-semibold">
                     <p className="text-lg text-custom-red text-xl pb-6">{event[0].eventName}</p>
-                    <p className="text-lg">{event[0].eventDescription}</p>
-                    <p className="text-lg">{event[0].eventDate}</p>
+                    <p className="text-lg text-center mb-6">{event[0].eventDescription}</p>
+                    <p className="text-lg text-custom-blue">{event[0].eventDate}</p>
                 </div>
             ): (
                 <p className="text-center">Loading event info...</p>
             )}
-        </>
+        </div>
     )
 }
 

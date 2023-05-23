@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 
 * {
     margin: 0;
@@ -18,6 +18,50 @@
     scroll-behavior: smooth;
   }
 
+  /* scroll bar */
+  /* For Google Chrome and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ef4b4d;
+}
+
+/* For Internet Explorer and Edge */
+body {
+  scrollbar-face-color: #ef4b4d;
+  scrollbar-track-color: #F5F5F5;
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: #ef4b4d #F5F5F5;
+}
+
+  
+  
+  /* fonts */
+  .brand-font {
+    font-family: 'Allura', cursive;
+    font-weight: 800;
+    color: #2E3192; /* Black color */
+    text-shadow:
+    -1px -1px 0 #ffffff, /* White shadow */
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,
+    -3px 3px 0px #ff0000; /* Red shadow */
+}
+
+
+
   .font-1-bold{
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
@@ -28,6 +72,12 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: 0.2em;
+  }
+
+  .font-shadow{
+    font-family: 'Vast Shadow', cursive;
+    font-weight: 400;
+    font-stretch: 50%;
   }
 
   /* navbar styling */
@@ -42,12 +92,39 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 14px; /* Adjust as needed */
+    height: 14px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
     z-index: 10;
   }
 
-  /* .main-background {
+  .underline-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .underline-effect::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    background-color: #f00;
+    bottom: -3px;
+    left: 50%;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+  }
+  
+  .underline-effect:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
+
+
+
+
+
+  .main-background {
     position: relative;
     background-image: url('https://i.imgur.com/OgQaScZ.png');
     background-repeat: no-repeat;
@@ -55,7 +132,7 @@
     background-position: center;
     background-attachment: fixed;
     
-  } */
+  }
   
 
   .sticky-social {
@@ -167,7 +244,7 @@
   box-shadow: -16px 16px #ef4b4d;
 }
 .box-shadow2{
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 30px;
 }
 
 

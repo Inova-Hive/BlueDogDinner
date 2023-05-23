@@ -23,7 +23,7 @@ const Nav: React.FC = () => {
                 </RouterLink>
             </div>
             <div className="text-center pt-6 pb-4 navbar-shadow">
-                <RouterLink to="/" className="text-4xl font-1-bold text-custom-red mb-6">BLU DOG DINER</RouterLink>
+                <RouterLink to="/" className="text-7xl brand-font text-custom-blue">Blu Dog Diner</RouterLink>
                 <div className="space-x-16 mt-4">
                     <ScrollLink
                         onClick={() => handleClick('events')}
@@ -32,12 +32,13 @@ const Nav: React.FC = () => {
                         smooth={true}
                         duration={200}
                         offset={-500} // height of your navbar
-                        className="cursor-pointer font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700"
+                        className="cursor-pointer font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 relative underline-effect"
                     >
                         EVENTS
+                        <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
                     </ScrollLink>
-                    <RouterLink to="/menu" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">MENU</RouterLink>
-                    <RouterLink to="/order" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">ORDER ONLINE</RouterLink>
+                    <RouterLink to="/menu" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">MENU</RouterLink>
+                    <RouterLink to="/order" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink>
                     <ScrollLink
                         onClick={() => handleClick('contact')}
                         to="contact"
@@ -45,9 +46,10 @@ const Nav: React.FC = () => {
                         smooth={true}
                         duration={200}
                         offset={-500} // height of your navbar
-                        className="cursor-pointer font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700"
+                        className="cursor-pointer font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 relative underline-effect"
                     >
                         CONTACT US
+                        <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
                     </ScrollLink>
                 </div>
             </div>
