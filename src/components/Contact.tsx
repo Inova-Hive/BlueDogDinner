@@ -47,7 +47,8 @@ const Contact: React.FC = () => {
   }, [])
 
   return (
-    <div className='flex flex-col justify-center text-lg font-1-bold mx-auto mt-24  w-2/4'>
+    <div className='divider-2-shadow'>
+    <div className='flex flex-col justify-center text-lg font-1-bold mx-auto pt-24  w-2/4'>
       
       {/* contact section*/}
       <div>
@@ -58,15 +59,17 @@ const Contact: React.FC = () => {
             
             <div>
               {/* Stay In Touch Text */}
-              <div className='font-shadow text-6xl pb-4 pb-24 text-custom-blue'>
-                <p>STAY IN <br/> TOUCH!</p>
+              <div className='mx-10 font-shadow text-5xl pb-24 text-custom-blue'>
+                <p className="line1">STAY IN</p>
+                <p className="line2">TOUCH!</p>
               </div>
-              <div className='m-4 border-8 border-custom-red px-6 py-10 box-shadow1 rounded-lg'>
+
+              <div className='m-4 border-8 border-custom-red px-6 py-10 box-shadow2 rounded-lg'>
                 <h1 className='text-3xl pb-4 text-custom-blue'>Contact Us</h1>
                 
                 {/* divider image */}
                 <div className=' mb-8'>
-                  <img className="w-52" src="https://i.imgur.com/Ke1QQlL.png" alt="page divider" />
+                  <img className="w-44" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
                 </div>
                 
                 {/* phone */}
@@ -80,14 +83,14 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className='flex flex-col justify-center m-4 border-8 border-custom-red rounded-lg px-6 py-10'>
+            <div className='flex flex-col justify-center m-4 border-8 border-custom-red rounded-lg box-shadow2 px-6 py-10'>
               <div>
                 <p className='text-3xl pb-4 text-custom-blue mx-4'>Hours & Location</p>
               </div>
               
               {/* divider image */}
               <div className=' mx-4 mb-8'>
-                  <img className="w-64" src="https://i.imgur.com/Ke1QQlL.png" alt="page divider" />
+                  <img className="w-72" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
                 </div>
 
               <div>
@@ -119,6 +122,7 @@ const Contact: React.FC = () => {
         )}
         </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         'custom-red': '#ef4b4d',
         'custom-red-hover': '#ef4b4ed6',
-        'custom-blue': '#2E3192'
+        'custom-blue': '#2E3192',
+        'custom-blue-2': '#777ad1'
       },
       backgroundImage: (theme) => ({
         'menu-background': "url('https://i.imgur.com/U1XAHat.jpg')"
