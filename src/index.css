@@ -142,7 +142,7 @@ body {
 
   .sticky-social {
     position: fixed;
-    top: 50%;
+    top: 35%;
     left: 0;
     display: flex;
     flex-direction: column;

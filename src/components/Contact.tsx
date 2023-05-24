@@ -73,13 +73,13 @@ const Contact: React.FC = () => {
                 </div>
                 
                 {/* phone */}
-                <p className=''><span className="text-custom-red">PHONE:</span> {contactInfo[0].phone}</p>
+                <p className='my-4'><span className="text-custom-red">PHONE:</span> {contactInfo[0].phone}</p>
                 
                 {/* E-mail */}
-                <p className=''><span className="text-custom-red">E-MAIL:</span> {contactInfo[0].email}</p>
+                <p className='my-4'><span className="text-custom-red">E-MAIL:</span> {contactInfo[0].email}</p>
                 
                 {/* address */}
-                <p className=''><span className="text-custom-red">ADDRESS:</span> {contactInfo[0].location}</p>
+                <p className='my-4'><span className="text-custom-red">ADDRESS:</span> {contactInfo[0].location}</p>
               </div>
             </div>
 
