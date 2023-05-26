@@ -19,7 +19,8 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 
 // google client id import from .env file
-const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || ''
+// const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || ''
+const googleClientId = "775388212549-j9gbinn72r1pg15k1p8v3cntq84tes67.apps.googleusercontent.com"
 
 // Define the App component
 const App: React.FC = () => {
