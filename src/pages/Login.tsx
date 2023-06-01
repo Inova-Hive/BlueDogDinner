@@ -1,35 +1,37 @@
-import React from 'react';
-import { GoogleLogin } from '@react-oauth/google';
-import axios from 'axios'; // import axios
-
+import React, { MouseEvent } from 'react';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 import { BASE_URL } from '../globals';
-
 const Login: React.FC = () => {
-  const handleLoginSuccess = async (credentialResponse: any) => {
+  const handleGoogleLogin = async (response: any) => {
     try {
-      const response = await axios.post(`${BASE_URL}/auth/session-token`, {
-        session_token: credentialResponse.session_token, // adjust this line according to the structure of your credentialResponse
+      const data = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+        headers: {
+          "Authorization": `Bearer ${response.access_token}`
+        }
       });
-
-      // handle the response here (e.g., redirect the user, show a success message, etc.)
-    } catch (error) {
-      console.error('Server error:', error);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
     }
   };
-
-  const handleLoginError = () => {
-    console.log('Login Failed');
-  };
-
+  const login = useGoogleLogin({
+    onSuccess: handleGoogleLogin,
+  });
   return (
     <div className="max-w-3xl mx-auto px-4 py-2 flex flex-col items-center justify-center" style={{ height: 'calc(100vh - 280px)' }}>
       <p className="text-2xl font-1-semibold text-custom-blue mb-10">Please login to proceed.</p>
-      <GoogleLogin
+      {/* <GoogleLogin
         onSuccess={handleLoginSuccess}
         onError={handleLoginError}
-      />
+      /> */}
+      <header className='Test'>
+        <button onClick={(event: React.MouseEvent<HTMLButtonElement>) => login()}>
+          <i className="fa-brands fa-google"></i>
+          Continue with Google
+        </button>
+      </header>
     </div>
   );
 };
-
 export default Login;
