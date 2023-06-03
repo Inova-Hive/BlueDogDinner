@@ -5,7 +5,7 @@ const DividerImg: React.FC = () => {
     <div 
       className="relative bg-fixed bg-center bg-no-repeat bg-cover h-[500px]"
       style={{
-        backgroundImage: `url("https://i.imgur.com/FQqx0eN.jpg")`
+        backgroundImage: `url("https://storage.googleapis.com/bludogdiner_menuimages/BluDogContent/DJI_20230525_155238_23.jpg")`
       }}
     >
     </div>
