@@ -7,7 +7,18 @@ import DividerImg from '../components/DividerImg'
 import Contact from '../components/Contact';
 import Events from '../components/Events';
 
-const Home: React.FC = () => {
+interface User {
+  name: string;
+  email: string;
+  // Add more properties as needed
+}
+
+interface HomeProps {
+  user: User | null;
+  authenticated: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destructure the new props here
   const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {

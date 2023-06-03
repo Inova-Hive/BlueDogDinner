@@ -2,7 +2,12 @@ import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
-const Nav: React.FC = () => {
+interface NavProps {
+    handleLogOut: () => void;
+    authenticated: boolean;
+}
+
+const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated}) => {
     const navigate = useNavigate();
 
     const handleClick = (to: string) => {
@@ -51,6 +56,7 @@ const Nav: React.FC = () => {
                         CONTACT US
                         <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
                     </ScrollLink>
+                    {authenticated && <button onClick={handleLogOut} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">LOGOUT</button>}
                 </div>
             </div>
         </div>
