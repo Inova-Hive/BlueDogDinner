@@ -10,8 +10,8 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import ItemForm from './pages/ItemForm';
-import PrivacyPolicy from './pages/PrivatePolicy';
-import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/Calendar';
+import TermsOfService from './pages/AboutUs';
 
 // Components Imports
 import Nav from './components/Nav';

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaInstagram,FaFacebook, FaTwitter } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import Banner from '../components/Banner';
 import Info from '../components/Info';
@@ -49,10 +49,13 @@ const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destruct
     <div id="home" className='main-background'>
       <div className='hazy-layer'></div>
       <div className="sticky-social">
-        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="instagram">
+        <a href="https://www.instagram.com/bludogdiner?igshid=OGQ5ZDc2ODK2ZA==" target="_blank" rel="noreferrer" className="instagram">
             <FaInstagram size="2em"/>
         </a>
-        <a href="https://www.twitter.com/" target="_blank" rel="noreferrer" className="twitter">
+        <a href="https://www.facebook.com/bludogdiner" target="_blank" rel="noreferrer" className="facebook">
+            <FaFacebook size="2em"/>
+        </a>
+        <a href="https://www.twitter.com/bludogdiner" target="_blank" rel="noreferrer" className="twitter">
             <FaTwitter size="2em"/>
         </a>
       </div>
