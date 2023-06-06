@@ -43,7 +43,6 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated}) => {
                         <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
                     </ScrollLink>
                     <RouterLink to="/menu" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">MENU</RouterLink>
-                    <RouterLink to="/order" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink>
                     <ScrollLink
                         onClick={() => handleClick('contact')}
                         to="contact"
@@ -56,6 +55,9 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated}) => {
                         CONTACT US
                         <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
                     </ScrollLink>
+                    {/* <RouterLink to="/order" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink> */}
+                    <a href="YOUR-ONLINE-ORDERING-URL" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/412971/Toast%20Digital%20Ordering%20Buttons/Online%20Ordering%20Buttons/OO_teal_large.png"></img></a>
+                    <a href="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/412971/Toast%20Digital%20Ordering%20Buttons/Toast%20TakeOut%20Buttons/TTO_download-with-logo-black.png"></img></a>
                     {authenticated && <button onClick={handleLogOut} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">LOGOUT</button>}
                 </div>
             </div>

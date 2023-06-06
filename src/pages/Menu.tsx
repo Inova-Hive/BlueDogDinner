@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback, FC } from 'react'
+import React, { useState, useEffect, useCallback, FC } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 
 // global imports
-import { BASE_URL } from '../globals'
+import { BASE_URL } from '../globals';
 
 // icons imports
 import { FaHotdog, FaConciergeBell } from 'react-icons/fa';
 import { GiChipsBag, GiCoffeeCup } from 'react-icons/gi';
-import { MdLocalDrink} from 'react-icons/md';
+import { MdLocalDrink } from 'react-icons/md';
 
 interface Section_Menu_Items {
   id: number;
@@ -32,82 +32,79 @@ interface Menu {
   menu_section: Section[];
 }
 
-const Menu: FC = () => {
-  const [menu, setMenu] = useState<Menu[] | null>(null)
-  const [specialItem, setSpecialItem] = useState<Section_Menu_Items | null>(null)
+interface MenuProps {
+  authenticated: boolean;
+}
+
+const Menu: FC<MenuProps> = ({ authenticated }) => {
+  const [menu, setMenu] = useState<Menu[] | null>(null);
+  const [specialItem, setSpecialItem] = useState<Section_Menu_Items | null>(null);
 
   const GetMenu = useCallback(async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/menu/get_menu`)
-      setMenu(res.data)
+      const res = await axios.get(`${BASE_URL}/menu/get_menu`);
+      setMenu(res.data);
 
-      const specialsMenu = res.data[0].menu_section.find((section: Section) => section.sectionName === "Specials Menu");
+      const specialsMenu = res.data[0].menu_section.find((section: Section) => section.sectionName === 'Specials Menu');
       if (specialsMenu && specialsMenu.section_menu_items.length > 0) {
         setSpecialItem(specialsMenu.section_menu_items[0]);
       }
     } catch (error) {
       console.error(error);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    GetMenu()
-  }, [GetMenu])
+    GetMenu();
+  }, [GetMenu]);
 
-  // delete item function
   const deleteItem = async (itemId: number) => {
     try {
       await axios.delete(`${BASE_URL}/menu/delete_item/${itemId}`);
-      // re-fetch menu to update state after successful deletion
       GetMenu();
     } catch (error) {
       console.error(error);
     }
   };
 
-
-
-
-
-
   const getIcon = (itemName: string) => {
     let icon;
-    let iconSize = 40
+    let iconSize = 40;
     switch (itemName) {
       case 'Hotdogs':
-        icon = <FaHotdog size={iconSize}/>;
+        icon = <FaHotdog size={iconSize} />;
         break;
       case 'Sides':
-        icon = <GiChipsBag size={iconSize}/>;
+        icon = <GiChipsBag size={iconSize} />;
         break;
       case 'Drinks':
-        icon = <MdLocalDrink size={iconSize}/>;
+        icon = <MdLocalDrink size={iconSize} />;
         break;
       case 'Coffee':
-        icon = <GiCoffeeCup size={iconSize}/>;
+        icon = <GiCoffeeCup size={iconSize} />;
         break;
       case 'Specials Menu':
-        icon = <FaConciergeBell size={iconSize}/>;
+        icon = <FaConciergeBell size={iconSize} />;
         break;
       default:
-        icon = <FaHotdog size={iconSize}/>;
+        icon = <FaHotdog size={iconSize} />;
     }
     return icon;
-  }
+  };
 
   return (
     <div className='mx-auto menu-background py-2 pb-20'>
       {menu && (
-        <div className="border-8 px-16 py-14 px-36 mx-auto mt-20 w-2/3 menu-letter-background" >
+        <div className="border-8 px-16 py-14 px-36 mx-auto mt-20 w-2/3 menu-letter-background">
           <h1 className='text-center font-1-bold text-white text-5xl m-2 pb-32'>{menu[0].menuDescription}</h1>
-          
+
           {menu[0].menu_section.map((section: Section) => (
             <div key={section.id}>
               <div className="flex flex-col justify-center items-center text-custom-red">
-                <p className="pb-6">{getIcon(section?.sectionName)}</ p>
+                <p className="pb-6">{getIcon(section?.sectionName)}</p>
                 <p className='text-center font-1-semibold text-white text-3xl pb-10 ml-2'>{section.sectionName}</p>
               </div>
-              
+
               {section.sectionName === "Specials Menu" ? (
                 <div className="flex flex-col justify-center items-center">
                   <select 
@@ -145,35 +142,39 @@ const Menu: FC = () => {
                         <p className='font-semibold'>{item.itemName}</p>
                         <p className='text-sm'>{item.itemDescription}</p>
                         <p className='font-bold'>{`$${item.price}`}</p>
-                        <div className="text-sm flex justify-center items-center space-x-3 mt-4">
-                          <Link 
-                            to={`/item/${section.id}/${item.id}/edit_item`} 
-                            state={{
-                              image: item.image,
-                              itemName: item.itemName,
-                              itemDescription: item.itemDescription,
-                              price: item.price,
-                            }}
-                          >
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                              Edit
+                        {authenticated && (
+                          <div className="text-sm flex justify-center items-center space-x-3 mt-4">
+                            <Link 
+                              to={`/item/${section.id}/${item.id}/edit_item`} 
+                              state={{
+                                image: item.image,
+                                itemName: item.itemName,
+                                itemDescription: item.itemDescription,
+                                price: item.price,
+                              }}
+                            >
+                              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Edit
+                              </button>
+                            </Link>
+                            <div className="border-r border-gray-500 h-5 mx-3"></div>
+                            <button onClick={() => deleteItem(item.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                              Delete
                             </button>
-                          </Link>
-                          <div className="border-r border-gray-500 h-5 mx-3"></div>
-                          <button onClick={() => deleteItem(item.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Delete
-                          </button>
-                        </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
               )}
-              <Link to={`/item/add`} className='flex justify-center text-center mb-24'>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
-                Add Item
-              </button>
-            </Link>
+              {authenticated && (
+                <Link to={`/item/add`} className='flex justify-center text-center mb-24'>
+                  <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+                    Add Item
+                  </button>
+                </Link>
+              )}
             </div>
           ))}
         </div>
@@ -182,4 +183,4 @@ const Menu: FC = () => {
   )
 }
 
-export default Menu
+export default Menu;

@@ -68,16 +68,15 @@ const App: React.FC = () => {
               />
             }
           />
-          <Route path="/menu" element={<Menu />} />
-          <>
-            <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/item/add" element={<ItemForm />} />
-            <Route
-              path="/item/:sectionId/:itemId/edit_item"
-              element={<ItemForm />}
-            />
-          </>
+          <Route path="/menu" element={<Menu authenticated={authenticated}/>} />         
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/item/add" element={<ItemForm />} />
+          <Route
+            path="/item/:sectionId/:itemId/edit_item"
+            element={<ItemForm />}
+          />
+         
         </Routes>
       </main>
       <footer>
