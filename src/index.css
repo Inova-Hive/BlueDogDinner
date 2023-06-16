@@ -147,7 +147,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 150px;
+    height: 190px;
     z-index: 999;
   }
   
@@ -159,6 +159,11 @@ body {
     height: 3em;
     margin: 0.5em;
     transition: background-color 0.3s ease;
+  }
+  
+  .sticky-social .facebook {
+    background-color: #3b5998;
+    border-radius: 5px;
   }
   
   .sticky-social .instagram {
@@ -181,7 +186,11 @@ body {
   }
   
 
-  
+
+  .sticky-social .facebook:hover svg {
+      color: #3b5998;
+  }
+
   .sticky-social .instagram:hover svg {
     color: #E4405F;
   }
@@ -318,6 +327,15 @@ body {
 .carousel-item::-webkit-scrollbar-thumb:hover {
   background: #ef4b4eba; /* Adjust scrollbar handle hover color */
 }
+
+.react-multi-carousel-arrow::before {
+  color: #ef4b4d !important;
+}
+
+.react-multi-carousel-arrow:hover::before {
+  color: #ef4b4eba !important;
+}
+
 
 .carousel-item-padding-40-px {
   padding: 1rem;  

@@ -49,11 +49,11 @@ const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destruct
     <div id="home" className='main-background'>
       <div className='hazy-layer'></div>
       <div className="sticky-social">
-        <a href="https://www.instagram.com/bludogdiner?igshid=OGQ5ZDc2ODK2ZA==" target="_blank" rel="noreferrer" className="instagram">
-            <FaInstagram size="2em"/>
-        </a>
         <a href="https://www.facebook.com/bludogdiner" target="_blank" rel="noreferrer" className="facebook">
             <FaFacebook size="2em"/>
+        </a>
+        <a href="https://www.instagram.com/bludogdiner?igshid=OGQ5ZDc2ODK2ZA==" target="_blank" rel="noreferrer" className="instagram">
+            <FaInstagram size="2em"/>
         </a>
         <a href="https://www.twitter.com/bludogdiner" target="_blank" rel="noreferrer" className="twitter">
             <FaTwitter size="2em"/>
