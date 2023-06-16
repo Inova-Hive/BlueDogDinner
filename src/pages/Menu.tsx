@@ -122,9 +122,9 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                     ))}
                   </select>
 
-                  {specialItem && (
+                  {specialItem && specialItem.image && (
                     <div className="pb-6 text-center">
-                      <img src={specialItem.image} alt="menu item image" className='mx-auto w-3/4 pb-6'/>
+                      <img src={specialItem.image} alt="menu item image" className='mx-auto w-3/4 pb-6 rounded'/>
                       <div className='text-white pb-4'>
                         <p className='font-semibold'>{specialItem.itemName}</p>
                         <p className='text-sm'>{specialItem.itemDescription}</p>
@@ -137,10 +137,10 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                 <div className='grid grid-cols-2 gap-56 text-center m-2'>
                   {section.section_menu_items.map((item) => (
                     <div key={item.id} className='pb-6'>
-                      <img src={item.image} alt="menu item image" className='pb-6'/>
+                      {item.image && <img src={item.image} alt="menu item image" className='pb-6 rounded'/>}
                       <div className='text-white pb-4'>
                         <p className='font-semibold'>{item.itemName}</p>
-                        <p className='text-sm'>{item.itemDescription}</p>
+                        <p className='text-sm pt-4'>{item.itemDescription}</p>
                         <p className='font-bold'>{`$${item.price}`}</p>
                         {authenticated && (
                           <div className="text-sm flex justify-center items-center space-x-3 mt-4">
