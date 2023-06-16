@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="bg-neutral-800 py-4">
             <div className="text-center">
                 <div className="space-x-16 mt-4">
-                    <RouterLink to="/" className="font text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">HOME</RouterLink>
+                    <RouterLink to="/" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">HOME</RouterLink>
                     <RouterLink to="/menu" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">MENU</RouterLink>
                     <RouterLink to="/order" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">ORDER ONLINE</RouterLink>
                     <RouterLink to="/contact" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">CONTACT US</RouterLink>
