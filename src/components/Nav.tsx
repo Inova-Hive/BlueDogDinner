@@ -38,7 +38,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated}) => {
                             spy={true}
                             smooth={true}
                             duration={200}
-                            offset={-500} // height of your navbar
+                            offset={100} // height of your navbar
                             className="cursor-pointer font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 relative underline-effect"
                         >
                             EVENTS
@@ -51,7 +51,6 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated}) => {
                             spy={true}
                             smooth={true}
                             duration={200}
-                            offset={-500} // height of your navbar
                             className="cursor-pointer font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 relative underline-effect"
                         >
                             CONTACT US

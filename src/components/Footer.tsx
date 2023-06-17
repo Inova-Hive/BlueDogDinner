@@ -1,8 +1,20 @@
 import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaAngleUp } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
+
+    const handleClick = (to: string) => {
+        if (window.location.pathname !== '/') {
+            window.location.href = '/';
+        }
+        setTimeout(() => {
+            const element = document.getElementById(to);
+            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 0);
+    };
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -11,10 +23,28 @@ const Footer: React.FC = () => {
         <div className="bg-neutral-800 py-4">
             <div className="text-center">
                 <div className="space-x-16 mt-4">
-                    <RouterLink to="/" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">HOME</RouterLink>
+                    <ScrollLink
+                        onClick={() => handleClick('home')}
+                        to="home"
+                        spy={true}
+                        smooth={true}
+                        duration={200}
+                        className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700"
+                    >
+                        HOME
+                    </ScrollLink>
                     <RouterLink to="/menu" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">MENU</RouterLink>
                     <RouterLink to="/order" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">ORDER ONLINE</RouterLink>
-                    <RouterLink to="/contact" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">CONTACT US</RouterLink>
+                    <ScrollLink
+                        onClick={() => handleClick('contact')}
+                        to="contact"
+                        spy={true}
+                        smooth={true}
+                        duration={200}
+                        className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700"
+                    >
+                        CONTACT US
+                    </ScrollLink>
                     <RouterLink to="/privacy-policy" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">PRIVACY POLICY</RouterLink>
                     <RouterLink to="/terms-of-service" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">TERMS OF SERVICE</RouterLink>
                 </div>
