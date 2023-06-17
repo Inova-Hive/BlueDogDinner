@@ -14,8 +14,8 @@ const Info: React.FC = () => {
             <img className="w-80" src="https://i.imgur.com/Ke1QQlL.png" alt="page divider" />
         </div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <img className="w-full md:w-1/2 lg:w-1/3 box-shadow1 mb-8 md:mb-0 rounded-lg" src="https://storage.googleapis.com/bludogdiner_menuimages/BluDogContent/OkiDogShot.jpg" alt="Hot Dogs"/> {/* Replace with your actual Imgur link */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mx-10">
+            <img className="w-full md:w-1/2 lg:w-1/3 box-shadow1 mb-8 md:mb-0 rounded-lg " src="https://storage.googleapis.com/bludogdiner_menuimages/BluDogContent/OkiDogShot.jpg" alt="Hot Dogs"/> {/* Replace with your actual Imgur link */}
             <div className="flex flex-col justify-between items-center  w-full md:w-1/2 lg:w-1/3">
                 <p className="text-lg font-1-bold text-custom-blue text-center mb-8"> We offer over <span className='text-xl text-custom-red'>15</span> different types of hot dogs, each with its unique flavor and ingredients.</p>
                 <Link to="/menu" className="font-1-semibold px-8 py-3 m-6 border-4 border-custom-red text-xl text-custom-red hover:bg-custom-red hover:text-white transition-colors duration-500">
