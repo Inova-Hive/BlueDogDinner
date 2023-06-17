@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TermsOfService: React.FC = () => {
+const AboutUs: React.FC = () => {
     return (
         <div className="max-w-3xl mx-auto px-4 py-8">
             <h2 className="text-2xl font-bold mb-4">Blu Dog Review</h2>
@@ -17,4 +17,4 @@ const TermsOfService: React.FC = () => {
     );
 }
 
-export default TermsOfService;
+export default AboutUs;

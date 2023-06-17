@@ -11,7 +11,7 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import ItemForm from './pages/ItemForm';
 import PrivacyPolicy from './pages/Calendar';
-import TermsOfService from './pages/AboutUs';
+import AboutUs from './pages/AboutUs';
 
 // Components Imports
 import Nav from './components/Nav';
@@ -70,7 +70,7 @@ const App: React.FC = () => {
           />
           <Route path="/menu" element={<Menu authenticated={authenticated}/>} />         
           <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
-          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/item/add" element={<ItemForm />} />
           <Route
             path="/item/:sectionId/:itemId/edit_item"

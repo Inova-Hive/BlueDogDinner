@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                         CONTACT US
                     </ScrollLink>
                     <RouterLink to="/privacy-policy" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">PRIVACY POLICY</RouterLink>
-                    <RouterLink to="/terms-of-service" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">TERMS OF SERVICE</RouterLink>
+                    <RouterLink to="/about-us" className="font-1-semibold text-md text-custom-red hover:text-custom-red-hover transition-colors duration-700">ABOUT US</RouterLink>
                 </div>
                 <div className="flex justify-center mt-4">
                     <a href="https://www.facebook.com/bludogdiner" target="_blank" rel="noopener noreferrer" className="text-gray-200 mx-2 hover:text-white">
