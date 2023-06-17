@@ -33,7 +33,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
             <div className="text-center pt-6 pb-4 navbar-shadow">
                 <RouterLink to="/" className="text-7xl brand-font text-custom-blue">Blu Dog Diner</RouterLink>
                 <div className="mt-4 flex flex-col sm:flex-row justify-between items-center">
-                    <div className="w-full text-center sm:w-1/3 sm:text-left sm:ml-16 pl-6 pr-4">
+                    <div className="w-full text-center sm:w-1/3 sm:text-left sm:ml-6 pl-6 sm:pl-0 pr-4 sm:pr-0">
                         <RouterLink to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png"></img></RouterLink>
                     </div>
                     <div className="w-full sm:w-2/3 mx-auto space-y-4 sm:space-y-0 sm:space-x-16 text-center">
@@ -44,7 +44,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
                             </button>
                         </div>
                         {/* Nav links - hidden on small screens, visible and horizontal on larger screens */}
-                        <div className={`flex flex-col sm:flex-row space-y-2 sm:space-y-0 ${open ? 'block' : 'hidden'} sm:block`}>
+                        <div className={`flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 ${open ? 'block' : 'hidden'} sm:block`}>
                             <ScrollLink
                                 onClick={() => handleClick('events')}
                                 to="events"
