@@ -32,19 +32,16 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
 
             <div className="text-center pt-6 pb-4 navbar-shadow">
                 <RouterLink to="/" className="text-7xl brand-font text-custom-blue">Blu Dog Diner</RouterLink>
-                <div className="mt-4 flex flex-col sm:flex-row justify-between items-center">
-                    <div className="w-full text-center sm:w-1/3 sm:text-left sm:ml-6 pl-6 sm:pl-0 pr-4 sm:pr-0">
-                        <RouterLink to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png"></img></RouterLink>
-                    </div>
-                    <div className="w-full sm:w-2/3 mx-auto space-y-4 sm:space-y-0 sm:space-x-16 text-center">
-                        {/* Hamburger icon for small screens */}
-                        <div className="flex relative bottom-6 justify-end items-center mr-8 sm:hidden">
+                <div className="mt-4 flex flex-col sm:flex-row xl:justify-center xl:items-center text-center">
+                    <div className="w-full xl:w-2/3 space-y-4 xl:space-y-0 xl:space-x-16 text-center justify-center">
+                        {/* Hamburger icon for xlall screens */}
+                        <div className="flex relative bottom-2 justify-end items-center mr-8 xl:hidden">
                             <button onClick={() => setOpen(!open)} className="text-2xl">
                                 {open ? <FaTimes /> : <FaBars />}
                             </button>
                         </div>
-                        {/* Nav links - hidden on small screens, visible and horizontal on larger screens */}
-                        <div className={`flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 ${open ? 'block' : 'hidden'} sm:block`}>
+                        {/* Nav links - hidden on xl screens, visible and horizontal on larger screens */}
+                        <div className={`flex flex-col xl:flex-row xl:space-x-8 space-y-2 xl:space-y-0 xl:justify-center ${open ? 'block' : 'hidden'} xl:block`}>
                             <ScrollLink
                                 onClick={() => handleClick('events')}
                                 to="events"
@@ -71,10 +68,11 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
                             </ScrollLink>
                             <RouterLink to="/about-us" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ABOUT US</RouterLink>
                             <RouterLink to="https://www.toasttab.com/blu-dog-diner-3216-judson-st-unit-b/v3" target="_blank" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink>
+                            <RouterLink className="sm:absolute flex justify-center sm:right-8 sm:bottom-3" to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png"></img></RouterLink>
+
                             {authenticated && <button onClick={handleLogOut} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">LOGOUT</button>}
                         </div>
                     </div>
-                    <div className="w-full sm:w-1/3"></div> {/* Right empty section */}
                 </div>
             </div>
         </div>
