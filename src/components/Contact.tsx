@@ -48,16 +48,13 @@ const Contact: React.FC = () => {
 
   return (
     <div className='divider-2-shadow'>
-    <div className='flex flex-col justify-center text-lg font-1-bold mx-auto pt-24  w-2/4'>
-      
-      {/* contact section*/}
-      <div>
-        {/* contact info container */}
-        <div>
+      <div className='flex flex-col items-center justify-center text-lg font-1-bold mx-auto pt-24 w-full sm:w-2/4 px-4 sm:px-0'>
+
+        {/* contact section*/}
         {contactInfo && hours ? (
-          <div className="flex justify-center items-center gap-x-24">
-            
-            <div>
+          <div className="flex flex-col sm:flex-row justify-center items-start sm:items-center gap-4 sm:gap-x-24">
+
+            <div className='w-full sm:w-auto'>
               {/* Stay In Touch Text */}
               <div className='mx-10 font-shadow text-5xl pb-24 text-custom-blue'>
                 <p className="line1">STAY IN</p>
@@ -69,7 +66,7 @@ const Contact: React.FC = () => {
                 
                 {/* divider image */}
                 <div className=' mb-8'>
-                  <img className="w-44" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
+                  <img className="w-44 mx-auto" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
                 </div>
                 
                 {/* phone */}
@@ -83,14 +80,14 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className='flex flex-col justify-center m-4 border-8 border-custom-red rounded-lg box-shadow2 px-6 py-10'>
+            <div className='mx-auto  flex flex-col justify-center my-4 border-8 border-custom-red rounded-lg box-shadow2 px-4 sm:px-2 py-10'>
               <div>
                 <p className='text-3xl pb-4 text-custom-blue mx-4'>Hours & Location</p>
               </div>
               
               {/* divider image */}
               <div className=' mx-4 mb-8'>
-                  <img className="w-72" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
+                  <img className="w-72 mx-auto" src="https://i.imgur.com/A14h6P8.png" alt="page divider" />
                 </div>
 
               <div>
@@ -103,12 +100,12 @@ const Contact: React.FC = () => {
               </div>
               
               {/* Google iframe map */}
-              <div className='m-4'>
+              <div className='m-2'>
                 <iframe 
                   src={`https://www.google.com/maps?q=${contactInfo[0].location}&output=embed`}
-                  width="350"
+                  width="100%"
+                  style={{maxWidth: "350px", border:0}}
                   height="250"
-                  style={{border:0}}
                   allowFullScreen
                   aria-hidden="false"
                   tabIndex={0}
@@ -120,9 +117,7 @@ const Contact: React.FC = () => {
         ) : (
           <p>Loading...</p>
         )}
-        </div>
       </div>
-    </div>
     </div>
   )
 }

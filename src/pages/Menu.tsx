@@ -95,20 +95,20 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
   return (
     <div className='mx-auto menu-background py-2 pb-20'>
       {menu && (
-        <div className="border-8 px-16 py-14 px-36 mx-auto mt-20 w-2/3 menu-letter-background">
-          <h1 className='text-center font-1-bold text-white text-5xl m-2 pb-32'>{menu[0].menuDescription}</h1>
+        <div className="border-8 px-4 sm:px-16 py-8 sm:py-14 lg:px-36 mx-4 sm:mx-auto mt-10 w-full sm:w-2/3 menu-letter-background">
+          <h1 className='text-center font-1-bold text-white text-3xl sm:text-5xl m-2 pb-10 sm:pb-32'>{menu[0].menuDescription}</h1>
 
           {menu[0].menu_section.map((section: Section) => (
             <div key={section.id}>
               <div className="flex flex-col justify-center items-center text-custom-red">
-                <p className="pb-6">{getIcon(section?.sectionName)}</p>
-                <p className='text-center font-1-semibold text-white text-3xl pb-10 ml-2'>{section.sectionName}</p>
+                <p className="pb-4">{getIcon(section?.sectionName)}</p>
+                <p className='text-center font-1-semibold text-white text-2xl sm:text-3xl pb-6 ml-2'>{section.sectionName}</p>
               </div>
 
               {section.sectionName === "Specials Menu" ? (
                 <div className="flex flex-col justify-center items-center">
                   <select 
-                    className="form-select mb-6"
+                    className="form-select mb-4"
                     value={specialItem ? specialItem.id : ""}
                     onChange={e => {
                       const selectedItem = section.section_menu_items.find(item => item.id === parseInt(e.target.value));
@@ -123,9 +123,9 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                   </select>
 
                   {specialItem && specialItem.image && (
-                    <div className="pb-6 text-center">
-                      <img src={specialItem.image} alt="menu item image" className='mx-auto w-3/4 pb-6 rounded'/>
-                      <div className='text-white pb-4'>
+                    <div className="pb-4 text-center">
+                      <img src={specialItem.image} alt="menu item image" className='mx-auto w-full sm:w-3/4 pb-4 rounded'/>
+                      <div className='text-white pb-2'>
                         <p className='font-semibold'>{specialItem.itemName}</p>
                         <p className='text-sm'>{specialItem.itemDescription}</p>
                         <p className='font-bold'>{`$${specialItem.price}`}</p>
@@ -134,16 +134,16 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                   )}
                 </div>
               ) : (
-                <div className='grid grid-cols-2 gap-56 text-center m-2'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 lg:gap-20 text-center m-2'>
                   {section.section_menu_items.map((item) => (
-                    <div key={item.id} className='pb-6'>
-                      {item.image && <img src={item.image} alt="menu item image" className='pb-6 rounded'/>}
-                      <div className='text-white pb-4'>
+                    <div key={item.id} className='pb-4'>
+                      {item.image && <img src={item.image} alt="menu item image" className='pb-4 rounded'/>}
+                      <div className='text-white pb-2'>
                         <p className='font-semibold'>{item.itemName}</p>
-                        <p className='text-sm pt-4'>{item.itemDescription}</p>
+                        <p className='text-sm pt-2'>{item.itemDescription}</p>
                         <p className='font-bold'>{`$${item.price}`}</p>
                         {authenticated && (
-                          <div className="text-sm flex justify-center items-center space-x-3 mt-4">
+                          <div className="text-sm flex justify-center items-center space-x-2 sm:space-x-3 mt-2">
                             <Link 
                               to={`/item/${section.id}/${item.id}/edit_item`} 
                               state={{
@@ -153,12 +153,12 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                                 price: item.price,
                               }}
                             >
-                              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
                                 Edit
                               </button>
                             </Link>
-                            <div className="border-r border-gray-500 h-5 mx-3"></div>
-                            <button onClick={() => deleteItem(item.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            <div className="border-r border-gray-500 h-4 sm:h-5 mx-2"></div>
+                            <button onClick={() => deleteItem(item.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
                               Delete
                             </button>
                           </div>
@@ -169,8 +169,8 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                 </div>
               )}
               {authenticated && (
-                <Link to={`/item/add`} className='flex justify-center text-center mb-24'>
-                  <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+                <Link to={`/item/add`} className='flex justify-center text-center mb-12'>
+                  <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded mt-2">
                     Add Item
                   </button>
                 </Link>
