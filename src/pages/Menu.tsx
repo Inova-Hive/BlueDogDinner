@@ -115,6 +115,7 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                       if (selectedItem) setSpecialItem(selectedItem);
                     }}
                   >
+                    
                     {section.section_menu_items.map((item) => (
                       <option key={item.id} value={item.id}>
                         {item.itemName}
