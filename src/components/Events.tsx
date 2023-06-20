@@ -74,6 +74,7 @@ const Events: React.FC = () => {
                     <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>DATE:</span> {event.eventDate}</p>
                     <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>LOCATION:</span> {event.eventLocation}</p>
                     <iframe 
+                    title="event location"
                     src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
                     width="220"
                     height="180"

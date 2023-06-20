@@ -48,7 +48,7 @@ const ItemForm: React.FC = () => {
         if (itemIdInt && sectionIdInt) {
           getItem()
         }
-      }, [sectionId, itemId])
+      }, [sectionId, itemId, sectionIdInt, itemIdInt])
 
     //assigns the form inputs to the appropriate keys.
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

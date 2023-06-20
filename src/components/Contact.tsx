@@ -102,6 +102,7 @@ const Contact: React.FC = () => {
               {/* Google iframe map */}
               <div className='m-2'>
                 <iframe 
+                  title="business location"
                   src={`https://www.google.com/maps?q=${contactInfo[0].location}&output=embed`}
                   width="100%"
                   style={{maxWidth: "350px", border:0}}

@@ -68,7 +68,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
                             </ScrollLink>
                             <RouterLink to="/about-us" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ABOUT US</RouterLink>
                             <RouterLink to="https://www.toasttab.com/blu-dog-diner-3216-judson-st-unit-b/v3" target="_blank" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink>
-                            <RouterLink className="sm:absolute flex justify-center sm:right-8 sm:bottom-3" to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png"></img></RouterLink>
+                            <RouterLink className="sm:absolute flex justify-center sm:right-8 sm:bottom-3" to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png" alt="toast app download button"></img></RouterLink>
 
                             {authenticated && <button onClick={handleLogOut} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">LOGOUT</button>}
                         </div>

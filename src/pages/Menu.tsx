@@ -26,7 +26,7 @@ interface Section {
   section_menu_items: Section_Menu_Items[];
 }
 
-interface Menu {
+interface MenuCard {
   id: number;
   menuDescription: string;
   menu_section: Section[];
@@ -37,7 +37,7 @@ interface MenuProps {
 }
 
 const Menu: FC<MenuProps> = ({ authenticated }) => {
-  const [menu, setMenu] = useState<Menu[] | null>(null);
+  const [menu, setMenu] = useState<MenuCard[] | null>(null);
   const [specialItem, setSpecialItem] = useState<Section_Menu_Items | null>(null);
 
   const GetMenu = useCallback(async () => {
@@ -125,7 +125,7 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
 
                   {specialItem && specialItem.image && (
                     <div className="pb-4 text-center">
-                      <img src={specialItem.image} alt="menu item image" className='mx-auto w-full sm:w-3/4 pb-4 rounded'/>
+                      <img src={specialItem.image} alt="menu food item" className='mx-auto w-full sm:w-3/4 pb-4 rounded'/>
                       <div className='text-white pb-2'>
                         <p className='font-semibold'>{specialItem.itemName}</p>
                         <p className='text-sm'>{specialItem.itemDescription}</p>
@@ -138,7 +138,7 @@ const Menu: FC<MenuProps> = ({ authenticated }) => {
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 lg:gap-20 text-center m-2'>
                   {section.section_menu_items.map((item) => (
                     <div key={item.id} className='pb-4'>
-                      {item.image && <img src={item.image} alt="menu item image" className='pb-4 rounded'/>}
+                      {item.image && <img src={item.image} alt="menu food item" className='pb-4 rounded'/>}
                       <div className='text-white pb-2'>
                         <p className='font-semibold'>{item.itemName}</p>
                         <p className='text-sm pt-2'>{item.itemDescription}</p>

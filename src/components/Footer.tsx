@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
                 >
                     Back to Top &nbsp;<FaAngleUp />
                 </button>
-                <p className="flex justify-center items-center mt-8 text-gray-200">Powered by:<img className="pl-2 w-12" src="https://i.imgur.com/oOsxPAP.png" alt="Inova Hive logo image" /></p>
+                <p className="flex justify-center items-center mt-8 text-gray-200">Powered by:<img className="pl-2 w-12" src="https://i.imgur.com/oOsxPAP.png" alt="Inova Hive logo" /></p>
             </div>
         </div>
     );
