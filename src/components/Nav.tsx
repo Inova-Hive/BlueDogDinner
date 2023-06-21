@@ -24,19 +24,19 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
 
     return (
         <div className="relative">
-            <div className="absolute left-10 top-6 ml-4 z-10 md:block hidden">
+            <div className="absolute left-10 top-6 ml-4 z-10 md:block hidden" data-cy='logo'>
                 <RouterLink to="/">
                     <img src="https://i.imgur.com/hYRkYh0.png" alt="Logo" className="h-20 w-20" />
                 </RouterLink>
             </div>
 
-            <div className="text-center pt-6 pb-4 navbar-shadow">
+            <div className="text-center pt-6 pb-4 navbar-shadow" data-cy='title'>
                 <RouterLink to="/" className="text-7xl brand-font text-custom-blue">Blu Dog Diner</RouterLink>
                 <div className="mt-4 flex flex-col sm:flex-row xl:justify-center xl:items-center text-center">
                     <div className="w-full xl:w-2/3 space-y-4 xl:space-y-0 xl:space-x-16 text-center justify-center">
                         {/* Hamburger icon for xlall screens */}
                         <div className="flex relative bottom-2 justify-end items-center mr-8 xl:hidden">
-                            <button onClick={() => setOpen(!open)} className="text-2xl">
+                            <button data-cy='svgBtn' onClick={() => setOpen(!open)} className="text-2xl">
                                 {open ? <FaTimes /> : <FaBars />}
                             </button>
                         </div>
@@ -50,6 +50,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
                                 duration={200}
                                 offset={100} // height of your navbar
                                 className="cursor-pointer font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 relative underline-effect"
+                                data-cy='hamburgerOptions'
                             >
                                 EVENTS
                                 <span className="absolute bottom-0 left-1/2 w-0 h-0 bg-custom-red rounded-full transform transition-transform duration-300 hover:w-full hover:h-full hover:-translate-x-1/2 hover:-translate-y-1/2"></span>
