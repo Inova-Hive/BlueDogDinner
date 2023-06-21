@@ -56,12 +56,12 @@ const Contact: React.FC = () => {
 
             <div className='w-full sm:w-auto'>
               {/* Stay In Touch Text */}
-              <div className='mx-10 font-shadow text-5xl pb-24 text-custom-blue'>
+              <div data-cy='stayInTouchDiv' className='mx-10 font-shadow text-5xl pb-24 text-custom-blue'>
                 <p className="line1">STAY IN</p>
                 <p className="line2">TOUCH!</p>
               </div>
 
-              <div className='m-4 border-8 border-custom-red px-6 py-10 box-shadow2 rounded-lg'>
+              <div cy-data='contactDiv' className='m-4 border-8 border-custom-red px-6 py-10 box-shadow2 rounded-lg'>
                 <h1 className='text-3xl pb-4 text-custom-blue'>Contact Us</h1>
                 
                 {/* divider image */}
@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className='mx-auto  flex flex-col justify-center my-4 border-8 border-custom-red rounded-lg box-shadow2 px-4 sm:px-2 py-10'>
+            <div data-cy='hoursLocationDiv' className='mx-auto  flex flex-col justify-center my-4 border-8 border-custom-red rounded-lg box-shadow2 px-4 sm:px-2 py-10'>
               <div>
                 <p className='text-3xl pb-4 text-custom-blue mx-4'>Hours & Location</p>
               </div>
