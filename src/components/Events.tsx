@@ -55,7 +55,7 @@ const Events: React.FC = () => {
     }, [])
 
     return (
-        <div className="mb-24 pt-36 ">
+        <div data-cy='eventsDiv' className="mb-24 pt-36 ">
             <p className='text-center font-1-semibold text-7xl text-custom-blue'>Events</p>
           {events ? (
             <Carousel
@@ -67,7 +67,7 @@ const Events: React.FC = () => {
               itemClass="carousel-item-padding-40-px"
             >
             {events.map((event) => (
-                <div key={event.id} className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
+                <div key={event.id} data-cy='liveCarousel' className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
                     <p className="text-2xl text-center font-1-bold text-custom-red pb-8">{event.eventName}</p>
                     <p className="text-lg font-1-semibold text-white text-center mb-10">{event.eventDescription}</p>
                     <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>TIME:</span> {event.eventTime}</p>

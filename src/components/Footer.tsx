@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <div className="bg-neutral-800 py-4">
+        <div data-cy='footerDiv' className="bg-neutral-800 py-4">
             <div className="text-center">
                 <div className="space-x-16 mt-4">
                     <ScrollLink
