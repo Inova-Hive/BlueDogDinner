@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaInstagram,FaFacebook, FaTwitter } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import Banner from '../components/Banner';
@@ -19,6 +19,10 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destructure the new props here
+  
+  const [refreshEvents, setRefreshEvents] = useState(false);
+
+  
   const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
@@ -66,8 +70,8 @@ const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destruct
         <Contact />
       </div>
       <div id="events">
-        <Events authenticated={authenticated} />
-      </div>
+        <Events authenticated={authenticated} refresh={refreshEvents} onRefreshed={() => setRefreshEvents(false)} />
+    </div>
     </div>
   ) 
 }

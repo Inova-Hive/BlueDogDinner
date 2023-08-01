@@ -9,9 +9,11 @@ import { BASE_URL } from "../globals";
 
 interface EventProps {
   authenticated: boolean;
+  refresh: boolean;
+  onRefreshed: () => void;
 }
 
-const Events: React.FC<EventProps> = ({ authenticated }) => {
+const Events: React.FC<EventProps> = ({ authenticated, refresh, onRefreshed }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -52,8 +54,11 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
   };
 
   useEffect(() => {
-    getEvents();
-  }, []);
+    getEvents(); // This is where you would fetch your events data
+    if (refresh) {
+      onRefreshed(); // Clear the refresh flag
+    }
+  }, [refresh]);
 
   const deleteEvent = async (eventId: number) => {
     try {
