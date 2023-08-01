@@ -7,9 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 interface User {
-  name: string;
+  id: number;
   email: string;
-  // Add more properties as needed
+  name: string;
+  username: string;
+  passwordDigest: string;
+
 }
 
 interface LoginProps {

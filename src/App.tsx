@@ -19,11 +19,12 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 
 interface User {
-  // Define the user object type here
-  // Adjust the properties based on your user object structure
-  name: string;
+  id: number;
   email: string;
-  // Add more properties as needed
+  name: string;
+  username: string;
+  passwordDigest: string;
+
 }
 
 const App: React.FC = () => {
@@ -53,7 +54,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header>
-        <Nav handleLogOut={handleLogOut} authenticated={authenticated}  />
+        <Nav handleLogOut={handleLogOut} authenticated={authenticated} user={user} />
       </header>
       <main>
         <Routes>
@@ -77,7 +78,7 @@ const App: React.FC = () => {
             path="/item/:sectionId/:itemId/edit_item"
             element={<ItemForm />}
           />
-          <Route path="/settings" element={<Settings/>}/>
+          <Route path="/settings/:userId" element={<Settings/>}/>
 
          
         </Routes>

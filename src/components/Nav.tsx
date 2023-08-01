@@ -3,12 +3,22 @@ import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Import hamburger and close icons
 
+
+interface User {
+    id: number;
+    name: string;
+    username: string;
+    passwordDigest: string;
+    // Add more properties as needed
+  }
+
 interface NavProps {
     handleLogOut: () => void;
     authenticated: boolean;
+    user: User | null;
 }
 
-const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
+const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated, user }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false); // State for the dropdown menu
 
@@ -71,7 +81,7 @@ const Nav: React.FC<NavProps> = ({ handleLogOut, authenticated }) => {
                             <RouterLink to="https://www.toasttab.com/blu-dog-diner-3216-judson-st-unit-b/v3" target="_blank" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">ORDER ONLINE</RouterLink>
                             <RouterLink className="sm:absolute flex justify-center sm:right-8 sm:bottom-3" to="https://toasttakeout.page.link/restaurantButton" target="_blank"><img src="https://i.imgur.com/TqGSIlB.png" alt="toast app download button"></img></RouterLink>
 
-                            {authenticated && <RouterLink to="/settings" className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">SETTINGS</RouterLink>}
+                            {authenticated && <RouterLink to={`/settings/${user?.id}`} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">SETTINGS</RouterLink>}
                             {authenticated && <button onClick={handleLogOut} className="font-1-semibold text-lg text-custom-red hover:text-custom-blue transition-colors duration-700 underline-effect">LOGOUT</button>}
                         </div>
                     </div>
