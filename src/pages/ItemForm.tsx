@@ -60,7 +60,7 @@ const ItemForm: React.FC = () => {
       e.preventDefault()
       try {
         if (itemIdInt === undefined) {
-          await axios.post(`${BASE_URL}/product/review`, formState)
+          await axios.post(`${BASE_URL}/menu/item/add_item`, formState)
         } else {
           await axios.put(`${BASE_URL}/menu/item/${sectionIdInt}/${itemIdInt}/edit_item`, formState)
         }
