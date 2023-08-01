@@ -38,7 +38,7 @@ const Settings: React.FC = () => {
 
   // get user info
   const getUser = useCallback(async () => {
-    const res = await axios.get(`${BASE_URL}user/id/${userId}`);
+    const res = await axios.get(`${BASE_URL}/user/id/${userId}`);
     console.log("Response data: ", res.data); // Log the data
 
     setUserFormValues(res.data);
