@@ -91,7 +91,7 @@ const Settings: React.FC = () => {
   };
 
   return (
-    <div className="text-lg w-full max-w-xs min-h-screen text-white container pt-12 pb-24">
+    <div className="text-lg w-full max-w-xs min-h-screen text-white container pt-12 pb-24 mx-auto">
       <ToastContainer
         position="top-right"
         autoClose={4000}
@@ -104,10 +104,10 @@ const Settings: React.FC = () => {
         pauseOnHover
         theme="dark"
       />
-        <h1 className='font-2-bold text-xl md:text-2xl text-center mx-4 pb-10'>Update Your Current Info</h1>
+        <h1 className=' text-gray-700 font-bold text-xl md:text-2xl text-center mx-4 pb-10'>Update Your Current Info</h1>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">        
           {/* Username Section */}
-          <p className='font-1 text-3xl text-center  block text-gray-700 text-sm font-bold mb-2 pb-4'>update Info</p>
+          <p className=' text-4xl text-center  block text-gray-700 text-sm font-bold mb-2 pb-4'>UPDATE INFO</p>
 
           <section className="mb-4">
             <label className='text-lg font-2 block text-gray-700 text-sm font-bold mb-2' htmlFor="name">Name</label>
@@ -137,11 +137,11 @@ const Settings: React.FC = () => {
           </section>
           {/* Update User*/}
           <button
-            onClick={updateUser} className="mb-8 register-button hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={updateUser} className="mb-8 settings-button text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Update
           </button>
-          <p className='form-border font-1 text-3xl text-center  block text-gray-700 text-sm font-bold mb-2 pt-10 mt-2 pb-4'>update password</p>
+          <p className='form-border text-4xl text-center  block text-gray-700 text-sm font-bold mb-2 pt-10 mt-2 pb-4'>UPDATE PASSWORD</p>
           {/* Password Section */}
           <section className="mb-6">
             <label className='text-lg font-2 block text-gray-700 text-sm font-bold mb-2' htmlFor="oldPassword">Current Password</label>
@@ -171,7 +171,7 @@ const Settings: React.FC = () => {
           
           {/* password Button */}
           <button
-          onClick={updatePassword}  className="register-button hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          onClick={updatePassword}  className="settings-button text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Update Password
           </button>
