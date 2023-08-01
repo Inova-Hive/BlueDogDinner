@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { format } from 'date-fns'; // Importing the format function
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import { BASE_URL } from "../globals";
 
 interface EventProps {
@@ -76,43 +75,46 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
           containerClass="carousel-container"
           itemClass="carousel-item-padding-40-px"
         >
-          {events.map((event) => (
-            <div key={event.id} data-cy='liveCarousel' className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
-              <p className="text-2xl text-center font-1-bold text-custom-red pb-8">{event.eventName}</p>
-              <p className="text-lg font-1-semibold text-white text-center mb-10">{event.eventDescription}</p>
-              <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>TIME:</span> {event.eventTime}</p>
-              <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>DATE:</span> {event.eventDate}</p>
-              <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>LOCATION:</span> {event.eventLocation}</p>
-            
-              <iframe
-                title="event location"
-                src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
-                width="220"
-                height="180"
-                style={{ border: 0 }}
-                allowFullScreen
-                aria-hidden="false"
-                tabIndex={0}
-                className='box-shadow2 rounded-lg mx-auto mt-10'
-              />
-              {authenticated && (
-                <div className="text-sm flex justify-center items-center space-x-2 sm:space-x-3 mt-2">
-                  <Link 
-                    to={`/event/${event.id}/edit_event`} 
-                  >
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
-                      Edit
+          {events.map((event) => {
+            // Format the event time to AM/PM format
+            const formattedTime = format(new Date(`1970-01-01T${event.eventTime}:00`), 'hh:mm A');
+            // Format the event date to mm/dd/yyyy format
+            const formattedDate = format(new Date(event.eventDate), 'MM/dd/yyyy');
+
+            return (
+              <div key={event.id} data-cy='liveCarousel' className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
+                <p className="text-2xl text-center font-1-bold text-custom-red pb-8">{event.eventName}</p>
+                <p className="text-lg font-1-semibold text-white text-center mb-10">{event.eventDescription}</p>
+                <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>TIME:</span> {formattedTime}</p>
+                <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>DATE:</span> {formattedDate}</p>
+                <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>LOCATION:</span> {event.eventLocation}</p>
+                <iframe
+                  title="event location"
+                  src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
+                  width="220"
+                  height="180"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  aria-hidden="false"
+                  tabIndex={0}
+                  className='box-shadow2 rounded-lg mx-auto mt-10'
+                />
+                {authenticated && (
+                  <div className="text-sm flex justify-center items-center space-x-2 sm:space-x-3 mt-2">
+                    <Link to={`/event/${event.id}/edit_event`}>
+                      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
+                        Edit
+                      </button>
+                    </Link>
+                    <div className="border-r border-gray-500 h-4 sm:h-5 mx-2"></div>
+                    <button onClick={() => deleteEvent(event.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
+                      Delete
                     </button>
-                  </Link>
-                  <div className="border-r border-gray-500 h-4 sm:h-5 mx-2"></div>
-                  <button onClick={() => deleteEvent(event.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
-                    Delete
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
-          {/* This is the extra invisible element */}
+                  </div>
+                )}
+              </div>
+            );
+          })}
           <div className="carousel-item border-8 border-custom-red py-10 px-6 invisible"></div>
         </Carousel>
       ) : (
