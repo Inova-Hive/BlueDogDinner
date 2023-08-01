@@ -27,11 +27,11 @@ const EventInfo: React.FC = () => {
       axios.get(`${BASE_URL}/events/get_event/${id}`)
         .then((res) => {
           const data = res.data;
-          const date = format(new Date(data.eventDate), 'MM/dd/yyyy');
+          // Update the format string to 'yyyy-MM-dd'
+          const date = format(new Date(data.eventDate), 'yyyy-MM-dd');
           setEvent({
             ...data,
             eventDate: date,
-            // You can use the eventTime value directly if it's in "HH:mm" format
             eventTime: data.eventTime,
           });
         })
