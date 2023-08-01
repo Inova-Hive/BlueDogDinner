@@ -85,8 +85,8 @@ const Events: React.FC<EventProps> = ({ authenticated, refresh, onRefreshed }) =
             const eventTime = new Date(`1970-01-01T${event.eventTime}:00`);
             const formattedTime = eventTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
 
-            const eventDate = new Date(event.eventDate);
-            const formattedDate = eventDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+            const [year, month, day] = event.eventDate.split('-').map(Number);
+const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
 
             return (
               <div key={event.id} data-cy='liveCarousel' className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
