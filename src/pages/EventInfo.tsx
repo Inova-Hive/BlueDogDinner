@@ -51,11 +51,19 @@ const EventInfo: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const dateToSend = format(parse(event.eventDate, 'MM/dd/yyyy', new Date()), 'yyyy-MM-dd');
+  
+    // Format the date as yyyy/MM/dd
+    const dateToSend = format(parse(event.eventDate, 'MM/dd/yyyy', new Date()), 'yyyy/MM/dd');
+  
+    // Convert the time to 24-hour format (assuming event.eventTime is in 'hh:mm A' format)
+    const timeToSend = format(parse(event.eventTime, 'hh:mm A', new Date()), 'HH:mm');
+  
     const eventToSend = {
       ...event,
       eventDate: dateToSend,
+      eventTime: timeToSend,
     };
+  
     if (id) {
       axios.put(`${BASE_URL}/events/id/${id}`, eventToSend)
         .then(() => {
@@ -74,7 +82,7 @@ const EventInfo: React.FC = () => {
         });
     }
   };
-
+  
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl mb-4">
