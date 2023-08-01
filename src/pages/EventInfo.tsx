@@ -28,11 +28,11 @@ const EventInfo: React.FC = () => {
         .then((res) => {
           const data = res.data;
           const date = format(new Date(data.eventDate), 'MM/dd/yyyy');
-          const time = format(new Date(`1970-01-01T${data.eventTime}Z`), 'hh:mm A');
           setEvent({
             ...data,
             eventDate: date,
-            eventTime: time,
+            // You can use the eventTime value directly if it's in "HH:mm" format
+            eventTime: data.eventTime,
           });
         })
         .catch((error) => {
