@@ -53,7 +53,7 @@ const EventInfo: React.FC = () => {
     e.preventDefault();
   
     // Format the date as yyyy/MM/dd
-    const dateToSend = format(parse(event.eventDate, 'MM/dd/yyyy', new Date()), 'yyyy/MM/dd');
+    const dateToSend = event.eventDate;
   
     // eventTime is already in 24-hour format
     const timeToSend = event.eventTime;
