@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import ItemForm from './pages/ItemForm';
+import EventInfo from './pages/EventInfo';
 import PrivacyPolicy from './pages/Calendar';
 import AboutUs from './pages/AboutUs';
 import Settings from './pages/Settings';
@@ -79,6 +80,8 @@ const App: React.FC = () => {
             element={<ItemForm />}
           />
           <Route path="/settings/:userId" element={<Settings/>}/>
+          <Route path="/event/add" element={<EventInfo/>}/>
+          <Route path="/event/:id/edit_event" element={<EventInfo/>}/>
 
          
         </Routes>
