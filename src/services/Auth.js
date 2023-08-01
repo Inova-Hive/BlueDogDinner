@@ -21,7 +21,7 @@ export const RegisterUser = async (data) => {
 
 export const UpdateUser = async (data) => {
   try {
-    const res = await Client.put(`/users/id/${data.userId}`, data)
+    const res = await Client.put(`/user/id/${data.userId}`, data)
     return res.data
   } catch (error) {
     throw error
