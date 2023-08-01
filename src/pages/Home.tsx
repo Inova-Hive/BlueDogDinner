@@ -66,7 +66,7 @@ const Home: React.FC<HomeProps> = ({ user, authenticated }) => { // <-- destruct
         <Contact />
       </div>
       <div id="events">
-        <Events />
+        <Events authenticated={authenticated} />
       </div>
     </div>
   ) 
