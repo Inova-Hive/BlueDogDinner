@@ -52,11 +52,9 @@ const EventInfo: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dateToSend = format(parse(event.eventDate, 'MM/dd/yyyy', new Date()), 'yyyy-MM-dd');
-    const timeToSend = format(parse(event.eventTime, 'hh:mm A', new Date()), 'HH:mm');
     const eventToSend = {
       ...event,
       eventDate: dateToSend,
-      eventTime: timeToSend,
     };
     if (id) {
       axios.put(`${BASE_URL}/events/id/${id}`, eventToSend)
