@@ -31,8 +31,6 @@ const Settings: React.FC = () => {
     newPassword: '',
   };
 
-  const [currentUser, setCurrentUser] = useState<UserFormValues>(userInitialState);
-
 
   let params = useParams<Record<string, string>>();
   const userId = params.userId;  const [userFormValues, setUserFormValues] = useState<UserFormValues>(userInitialState);
@@ -41,11 +39,14 @@ const Settings: React.FC = () => {
   // get user info
   const getUser = useCallback(async () => {
     const res = await axios.get(`${BASE_URL}user/id/${userId}`);
-    setCurrentUser(res.data);
+    console.log("Response data: ", res.data); // Log the data
+
     setUserFormValues(res.data);
   }, [userId]);
 
   useEffect(() => {
+    // console.log("User form values: ", userFormValues); // Log the state
+
     getUser();
   }, [getUser]);
 
@@ -119,7 +120,6 @@ const Settings: React.FC = () => {
               onChange={userHandleChange}
               name="name"
               type="name"
-              placeholder={`Current Name: ${currentUser.name}`}
               value={userFormValues.name}
               className="font-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
@@ -133,7 +133,6 @@ const Settings: React.FC = () => {
               onChange={userHandleChange}
               name="username"
               type="username"
-              placeholder={`Current Username: ${currentUser.username}`}
               value={userFormValues.username}
               className="font-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
