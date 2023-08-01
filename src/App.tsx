@@ -12,6 +12,7 @@ import Menu from './pages/Menu';
 import ItemForm from './pages/ItemForm';
 import PrivacyPolicy from './pages/Calendar';
 import AboutUs from './pages/AboutUs';
+import Settings from './pages/Settings';
 
 // Components Imports
 import Nav from './components/Nav';
@@ -76,6 +77,8 @@ const App: React.FC = () => {
             path="/item/:sectionId/:itemId/edit_item"
             element={<ItemForm />}
           />
+          <Route path="/settings" element={<Settings/>}/>
+
          
         </Routes>
       </main>
