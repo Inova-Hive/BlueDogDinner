@@ -67,7 +67,7 @@ const EventInfo: React.FC = () => {
     if (id) {
       axios.put(`${BASE_URL}/events/id/${id}`, eventToSend)
         .then(() => {
-          navigate('/#events');
+          navigate('/');
         })
         .catch((error) => {
           console.error(error);
@@ -75,7 +75,7 @@ const EventInfo: React.FC = () => {
     } else {
       axios.post(`${BASE_URL}/events/create_event`, eventToSend)
         .then(() => {
-          navigate('/#events');
+          navigate('/');
         })
         .catch((error) => {
           console.error(error);
