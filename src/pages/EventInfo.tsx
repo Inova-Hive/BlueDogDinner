@@ -27,12 +27,15 @@ const EventInfo: React.FC = () => {
       axios.get(`${BASE_URL}/events/get_event/${id}`)
         .then((res) => {
           const data = res.data;
-          // Update the format string to 'yyyy-MM-dd'
           const date = format(new Date(data.eventDate), 'yyyy-MM-dd');
+          
+          // Assuming the time is received as a string, e.g., "03:45 PM" and needs to be converted to 24-hour format
+          const time = format(parse(data.eventTime, 'hh:mm aa', new Date()), 'HH:mm');
+          
           setEvent({
             ...data,
             eventDate: date,
-            eventTime: data.eventTime,
+            eventTime: time, // Using the newly formatted time value
           });
         })
         .catch((error) => {
