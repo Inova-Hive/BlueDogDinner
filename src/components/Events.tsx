@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns'; // Importing the format function
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 import { BASE_URL } from "../globals";
 
 interface EventProps {
@@ -76,10 +77,11 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
           itemClass="carousel-item-padding-40-px"
         >
           {events.map((event) => {
-            // Format the event time to AM/PM format
-            const formattedTime = format(new Date(`1970-01-01T${event.eventTime}:00`), 'hh:mm A');
-            // Format the event date to mm/dd/yyyy format
-            const formattedDate = format(new Date(event.eventDate), 'MM/dd/yyyy');
+            const eventTime = new Date(`1970-01-01T${event.eventTime}:00`);
+            const formattedTime = eventTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+            const eventDate = new Date(event.eventDate);
+            const formattedDate = eventDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
 
             return (
               <div key={event.id} data-cy='liveCarousel' className="carousel-item border-8 border-custom-blue bg-slate-900 py-10 px-8 ">
@@ -88,6 +90,7 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
                 <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>TIME:</span> {formattedTime}</p>
                 <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>DATE:</span> {formattedDate}</p>
                 <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>LOCATION:</span> {event.eventLocation}</p>
+
                 <iframe
                   title="event location"
                   src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
@@ -101,7 +104,7 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
                 />
                 {authenticated && (
                   <div className="text-sm flex justify-center items-center space-x-2 sm:space-x-3 mt-2">
-                    <Link to={`/event/${event.id}/edit_event`}>
+                    <Link to={`/event/${event.id}/edit_event`} >
                       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-2 sm:px-4 rounded">
                         Edit
                       </button>
@@ -115,6 +118,7 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
               </div>
             );
           })}
+          {/* This is the extra invisible element */}
           <div className="carousel-item border-8 border-custom-red py-10 px-6 invisible"></div>
         </Carousel>
       ) : (
