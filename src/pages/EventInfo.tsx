@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { format, parse } from 'date-fns';
 
 import { BASE_URL } from "../globals";
 
 type Params = {
-    [key: string]: string | undefined;
-    id?: string;
-  };
+  [key: string]: string | undefined;
+  id?: string;
+};
 
 const EventInfo: React.FC = () => {
   const { id } = useParams<Params>();
@@ -21,12 +22,18 @@ const EventInfo: React.FC = () => {
     eventLocation: '',
   });
 
-  // Load event data if id is provided (editing existing event)
   useEffect(() => {
     if (id) {
       axios.get(`${BASE_URL}/events/get_event/${id}`)
         .then((res) => {
-          setEvent(res.data);
+          const data = res.data;
+          const date = format(new Date(data.eventDate), 'MM/dd/yyyy');
+          const time = format(new Date(`1970-01-01T${data.eventTime}Z`), 'hh:mm A');
+          setEvent({
+            ...data,
+            eventDate: date,
+            eventTime: time,
+          });
         })
         .catch((error) => {
           console.error(error);
@@ -44,20 +51,25 @@ const EventInfo: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const dateToSend = format(parse(event.eventDate, 'MM/dd/yyyy', new Date()), 'yyyy-MM-dd');
+    const timeToSend = format(parse(event.eventTime, 'hh:mm A', new Date()), 'HH:mm');
+    const eventToSend = {
+      ...event,
+      eventDate: dateToSend,
+      eventTime: timeToSend,
+    };
     if (id) {
-      // Edit existing event
-      axios.put(`${BASE_URL}/events/id/${id}`, event)
+      axios.put(`${BASE_URL}/events/id/${id}`, eventToSend)
         .then(() => {
-          navigate(`${BASE_URL}/#events`); // Redirect to events page
+          navigate(`${BASE_URL}/#events`);
         })
         .catch((error) => {
           console.error(error);
         });
     } else {
-      // Create new event
-      axios.post(`${BASE_URL}/events/create_event`, event)
+      axios.post(`${BASE_URL}/events/create_event`, eventToSend)
         .then(() => {
-            navigate(`${BASE_URL}/#events`); // Redirect to events page
+          navigate(`${BASE_URL}/#events`);
         })
         .catch((error) => {
           console.error(error);

@@ -83,6 +83,18 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
               <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>TIME:</span> {event.eventTime}</p>
               <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>DATE:</span> {event.eventDate}</p>
               <p className="text-md font-1-semibold text-white my-2"><span className='text-lg font-1-bold text-custom-red'>LOCATION:</span> {event.eventLocation}</p>
+            
+              <iframe
+                title="event location"
+                src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
+                width="220"
+                height="180"
+                style={{ border: 0 }}
+                allowFullScreen
+                aria-hidden="false"
+                tabIndex={0}
+                className='box-shadow2 rounded-lg mx-auto mt-10'
+              />
               {authenticated && (
                 <div className="text-sm flex justify-center items-center space-x-2 sm:space-x-3 mt-2">
                   <Link 
@@ -98,17 +110,6 @@ const Events: React.FC<EventProps> = ({ authenticated }) => {
                   </button>
                 </div>
               )}
-              <iframe
-                title="event location"
-                src={`https://www.google.com/maps?q=${event.eventLocation}&output=embed`}
-                width="220"
-                height="180"
-                style={{ border: 0 }}
-                allowFullScreen
-                aria-hidden="false"
-                tabIndex={0}
-                className='box-shadow2 rounded-lg mx-auto mt-10'
-              />
             </div>
           ))}
           {/* This is the extra invisible element */}
